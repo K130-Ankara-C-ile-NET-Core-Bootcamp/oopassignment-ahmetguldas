@@ -1,0 +1,23 @@
+﻿
+Aşağıdaki adımları tamamlayınız.
+
+	1) BoilerplateKurulum.txt içindeki classları oluşturunuz.
+	2) Bütün metodları gereken şekilde tamamlayınız.
+	3) Program.cs'i run edip projenizi test ediniz.
+	4) OOPAssignmet.Test'e sağ tıklayıp Run Tests'e tıklayınız.
+	5) Her şey tamamlandığında projenizin son halini repoya pushlayınız.
+
+İpuçları:
+	
+	1) Build hatalarını çözmek için projeye eklediğiniz classların referanslarını, Program.cs ve OOPAssignment.Test içine eklemeyi unutmayın.
+	2) Surface, ObserverPattern (boilerplate içinde mevcut) ile üzerindeki tüm araçların konumlarını bilmeli ve takip etmelidir.
+	3) Araçlar hareket sırasında Surface'a alan dışına çıkıp çıkmadıklarını sormalıdır. Eğer çıktı ise System.Exception fırlatmalıdır.
+	4) Araçlar hareket sırasında Surface'a başka bir araçla çarpışıp çarpışmadıklarını sormalıdır. Eğer çarpışıyor ise System.Exception fırlatmalıdır.
+	5) CarStringCommandExecutor'ı kodlarken komut parametresini validate etmeyi unutmayın. Valid değilse System.Exception fırlatın.
+
+Önemli Noktalar:
+
+	1) Program.cs içinde herhangi bir değişiklik YAPILMAYACAKTIR!
+	2) OOPAssignmet.Test içinde herhangi bir değişiklik YAPILMAYACAKTIR!
+	3) Projeniz OOPAssignmet.Test içindeki bütün testleri BAŞARIYLA GEÇMELİDİR!
+	4) Bu koşulları sağlayana kadar projeniz bitmiş SAYILMAYACAKTIR!

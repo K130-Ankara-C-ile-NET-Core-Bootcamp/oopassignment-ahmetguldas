@@ -1,0 +1,117 @@
+	
+	Şu enumları oluşturun:
+		- Direction
+	
+	Direction şunları içermelidir:
+		- N
+		- E
+		- S
+		- W
+	
+	----------------------------------------------------------------------------------------------------------
+
+	Şu structları oluşturun:
+		- Coordinates
+		- MovementFactor
+		
+	Coordinates şunları içermelidir:
+		- long X
+		- long Y
+		- Constructor(long x, long y)
+	
+	MovementFactor şunları içermelidir:
+		- int XFactor
+		- int YFactor
+		- Constructor(int xFactor, int yFactor)
+	
+	----------------------------------------------------------------------------------------------------------
+
+	Şu interfaceleri oluşturun:
+		- ISurface 
+		- ICollidableSurface
+		- ICommand<T>
+		- IObserver<T>
+		- IObservable<T>
+		- ICarCommand	
+		- IStringCommand
+	
+	ISurface şunları içermelidir:
+		- readonly long Width
+		- readonly long Height
+		- bool IsCoordinatesInBounds(Coordinates coordinates)
+	
+	ICollidableSurface şunları içermelidir:
+		- bool IsCoordinatesEmpty(Coordinates coordinates)
+	
+	ICommand<T> şunları içermelidir:
+		- T tipi class olmalıdır
+		- void ExecuteCommand(T commandObject)
+	
+	IObserver<T> şunları içermelidir:
+		- T tipi class olmalıdır
+		- void Update(T provider)
+		- List<T> GetObservables()
+	
+	IObservable<T> şunları içermelidir:
+		- T tipi class olmalıdır
+		- void Attach(IObserver<T> observer)
+		- void Notify()
+	
+	ICarCommand şunları içermelidir:
+		- void TurnLeft()
+	    - void TurnRight()
+	    - void Move()
+	
+	IStringCommand şunları içermelidir:
+		- ICommand<string> interface'ini implemente etmelidir
+	
+	----------------------------------------------------------------------------------------------------------
+
+	Şu classları oluşturun:
+		- CarInfo
+		- CarCommandExecutorBase
+		- CarStringCommandExecutor
+		- Surface
+		- Car
+	
+	CarInfo şunları içermelidir:
+		- Guid CarId
+		- Coordinates Coordinates
+		- Constructor(Guid carId, Coordinates coordinates)
+	
+	CarCommandExecutorBase şunları içermelidir:
+		- protected readonly ICarCommand CarCommand 
+		- Constructor(ICarCommand carCommand)
+	
+	CarStringCommandExecutor şunları içermelidir:
+		- CarCommandExecutorBase'i extend etmelidir
+		- IStringCommand interface'ini implemente etmelidir
+		- CarResponse ExecuteCommand(string commandObject)
+	
+	Surface şunları içermelidir:
+		- ISurface interface'ini implemente etmelidir
+		- ICollidableSurface interface'ini implemente etmelidir
+		- IObserver<CarInfo> interface'ini implemente etmelidir
+		- long Width
+		- long Height
+		- private readonly List<CarInfo> ObservableCars
+		- Constructor(long width, long height)
+		- bool IsCoordinatesInBounds(Coordinates coordinates)
+		- bool IsCoordinatesEmpty(Coordinates coordinates)
+		- void Update(CarInfo provider)
+		- List<CarInfo> GetObservables()
+	
+	Car şunları içermelidir:
+		- ICarCommand interface'ini implemente etmelidir
+		- IObservable<CarInfo> interface'ini implemente etmelidir
+		- Guid Id
+		- Coordinates Coordinates
+		- Direction Direction
+		- ISurface Surface
+		- private IObserver<CarInfo> Observer
+		- Constructor(Coordinates coordinates, Direction direction, ISurface surface)
+		- void TurnLeft()
+		- void TurnRight()
+		- void Move()
+		- void Attach(IObserver<CarInfo> observer)
+		- void Notify()

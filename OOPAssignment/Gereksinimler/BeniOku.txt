@@ -1,0 +1,47 @@
+﻿
+ÖDEV TANIMI
+---------------
+	Bir harita(Surface) ve harita üzerindeki araçlardan(Car) oluşan bir oyun kodlayacağız.
+	Araçlar, harita üzerinde oyuncunun belirlediği pozisyondan başlayacak ve oyuncunun belirlediği yöne hareket edecektir.
+	Haritanın uzunluk ve genişlik değeri oyuncu tarafından belirlenecektir. ( Bkz: program.cs -> CreateSurface() )
+	Haritanın başlangıç noktası olarak sol alt köşe 0,0 (x, y) olarak kabul edilecektir.
+	Haritanın bitiş noktası ise sağ üst köşe (width, height) olarak kabul edilecektir.
+
+
+				Width = 5, Height = 5 olan bir surface için:
+				
+				|-----|-----|-----|-----|-----|-----|	
+				|	  |	    |	  |	    |	  |	 C  |	Width = 5, Height = 5
+				|-----|-----|-----|-----|-----|-----|	
+				|	  |	    |	  |	    |	  |	    |	A Noktası:  X = 0, Y = 0					       
+				|-----|-----|-----|-----|-----|-----|	B Noktası:  X = 3, Y = 2
+				|	  |	    |	  |	    |	  |	    |	C Noktası:  X = 5, Y = 5
+				|-----|-----|-----|-----|-----|-----|
+				|	  |	    |	  |	 B  |	  |	    |
+				|-----|-----|-----|-----|-----|-----|
+				|  	  |	    |	  |	    |	  |	    |
+				|-----|-----|-----|-----|-----|-----|
+				|  A  |	    |	  |	    |	  |	    |
+				|-----|-----|-----|-----|-----|-----|
+				
+				
+	Oyuncu haritayı belirledikten sonra ilk araç için pozisyon ve yön bilgisi (x, y, direction) girecektir.	
+	X ve Y değeri int, Direction ise enum olacaktır (N, W, E, S). ( Bkz: BoilerplateKurulum.txt )
+	X ve Y değeri harita üzerinde aracın konumunu, yön bilgisi ise aracın baktığı yönü belirtecektir.
+	Ardından oyuncu aracın hareket komutunu girecektir.
+	Araç, oyuncudan sağa dön (TurnRight), sola dön (TurnLeft) ve ilerle (Move) komutları alabilecektir.
+	Araç yalnızca ileri hareket edebilecektir.
+	Turn komutları alındığında araç hareket etmeyecek, bulunduğu konumda yön bilgisini güncelleyecektir.
+	Araç her turn komutunda 90 derece dönmelidir. Örneğin TurnLeft komutu 4 kere çağrıldığında başlangıçtaki yöne dönmelidir.
+	"R" komutu TurnRight, "L" komutu TurnLeft, "M" komutu ise Move için kullanılacaktır.
+	Aracın alacağı komutlar console ekranından tek bir string şeklinde girilecektir.
+	Hareket komutu da girildikten sonra araç gereken konuma ilerleyecektir.
+
+		
+				Input Template:								|	Örnek Input:		|	Örnek Input:
+					{surfaceWidth} {surfaceHeight}			|		5 5				|		5 5
+					{carX} {carY} {carDirection}			|		0 1 N			|		2 2 E
+					{carCommand}							|		MRMLLLLMM		|		LMMRMLMRRM
+															|						|	
+				Output Template								|	Beklenen Output		|	Beklenen Output
+					{carXNew} {carYNew} {carDirectionNew}	|		3 2 E			|		3 4 S
